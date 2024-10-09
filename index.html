@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Toggle</title>
+    <link rel="stylesheet" href="./assets/fonts/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the toggle button */
+        #toggleMenu {
+            display: none;
+        }
+
+        /* Hide dropdown menu by default */
+        #dropdownMenu {
+            display: none;
+        }
+
+        /* Hide navbar links for small screens (320px and below) */
+        @media (max-width: 320px) {
+            #navLinks {
+                display: none;
+            }
+
+            #toggleMenu {
+                display: block;
+            }
+
+            /* Dropdown covers the toggle button and positioned below it */
+            #dropdownMenu {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                z-index: 50;
+                padding: 1rem;
+            }
+
+            /* Close button styling */
+            #closeButton {
+                display: block;
+                font-size: 1.5rem;
+                color: white;
+                cursor: pointer;
+                margin-top: 10px;
+                text-align: center;
+            }
+        }
+
+        /* Hide the "Hire Me" button for small screens */
+        @media (max-width: 768px) {
+            #hireMeButton {
+                display: none;
+            }
+
+            /* Display toggle button for medium and small screens */
+            #toggleMenu {
+                display: block;
+            }
+
+            /* Hide the dropdown by default */
+            #dropdownMenu {
+                display: none;
+            }
+        }
+
+        /* Custom styles for fine-tuning */
+        @media (max-width: 768px) {
+            #designerImage {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900  text-white max-w-8xl content-center">
+
+    <!-- Navbar -->
+    <header class="flex justify-between items-center p-6 relative bg-slate-300">
+        <div class="text-2xl font-bold text-orange-500">LOGO</div>
+
+        <!-- Navigation Links for larger screens -->
+        <nav class="hidden md:flex space-x-8" id="navLinks">
+            <a href="#" class=" text-width font-bold hover:text-orange-500">Home</a>
+            <a href="#" class=" text-width font-bold hover:text-orange-500">Services</a>
+            <a href="#" class=" text-width font-bold hover:text-orange-500">About me</a>
+            <a href="#" class=" text-width font-bold hover:text-orange-500">Portfolio</a>
+            <a href="#" class=" text-width font-bold hover:text-orange-500">Contact me</a>
+        </nav>
+
+        <!-- Hire Me button for larger screens -->
+        <button id="hireMeButton" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">Hire
+            Me</button>
+
+        <!-- Toggle button for smaller screens -->
+        <button id="toggleMenu" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
+            <span>&#9776;</span> <!-- Hamburger icon -->
+        </button>
+    </header>
+
+    <!-- Dropdown Menu for small screens -->
+    <div id="dropdownMenu" class="bg-neutral-200 h-[300px] w-[270px] rounded-lg mx-auto mt-2">
+        <span class="closeButton justify-end flex "><i class="fa-solid fa-xmark" style="color: #000000 "></i></span>
+        <!-- Close button inside the dropdown menu -->
+
+
+        <nav class="space-y-4 text-center text-black mt-4">
+            <a href="#" class="block text-1xl hover:text-orange-500">Home</a>
+            <a href="#" class="block text-1xl hover:text-orange-500">Services</a>
+            <a href="#" class="block text-1xl hover:text-orange-500">About me</a>
+            <a href="#" class="block text-1xl hover:text-orange-500">Portfolio</a>
+            <a href="#" class="block text-1xl hover:text-orange-500">Contact me</a>
+        </nav>
+    </div>
+
+    <script>
+        // JavaScript to handle toggle button and close button
+        const toggleButton = document.getElementById('toggleMenu');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const closeButton = document.querySelector('.closeButton');
+
+        // Show dropdown menu when toggle button is clicked
+        toggleButton.addEventListener('click', () => {
+            dropdownMenu.style.display = 'block';
+        });
+
+        // Hide dropdown menu when close button is clicked
+        closeButton.addEventListener('click', () => {
+            dropdownMenu.style.display = 'none';
+        });
+    </script>
+
+
+    <section class="flex flex-col md:flex-row justify-center md:justify-between items-center p-6 mx-auto">
+        <!-- Left Side: Text Section -->
+        <div class="text-center md:text-left md:w-1/2">
+            <h2 class="text-sm md:text-2xl mb-2">Hi, I am</h2>
+            <h1 class="text-3xl md:text-6xl font-bold text-orange-500 mt-2 mb-2">MUJAHIDUL ISLAM</h1>
+            <h2 class="text-xl md:text-4xl font-bold mt-1 mb-6">WEB DEVELOPER</h2>
+
+            <!-- Social Icons -->
+            <div class="flex justify-center md:justify-start space-x-4 mt-4 mb-6">
+                <ul class="flex ">
+                    <li class="px-3 py-2 bg-blue-600 rounded-lg me-[10px] hover:bg-neutral-900"><a href="#"><i
+                                class="fa-brands fa-facebook"></i></a></li>
+                    <li class="px-3 py-2 bg-pink-500 rounded-lg me-[10px] hover:bg-neutral-900"><a
+                            href="https://www.facebook.com/yourprofile"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li class="px-3 py-2 bg-indigo-500 rounded-lg me-[10px] hover:bg-neutral-900"><a
+                            href="https://www.instagram.com/yourusername"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li class="px-3 py-2 bg-black rounded-lg me-[10px] hover:bg-neutral-900"><a
+                            href="https://github.com/mujahidul-islam-21"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex justify-center md:justify-start space-x-4 mt-6">
+                <button class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">Hire Me</button>
+                <button
+                    class="border border-gray-500 text-white px-4 py-2 rounded-lg bg-stone-400 hover:bg-orange-500">Download
+                    CV</button>
+            </div>
+        </div>
+
+        <!-- Right Side: Image Section -->
+        <div class="mt-6 md:mt-0 md:w-1/1 flex justify-center ">
+            <img src="./assets/photos/WhatsApp Image arabian2024-07-1(1).png" alt="Mahmood Fazile"
+                class="w-64 md:w-full object-cover ">
+        </div>
+    </section>
+
+
+    <section class="services bg-gray-900 text-center py-16 px-4 mb-[150px] mt-[150px]">
+        <h2 class="text-4xl font-bold text-white mb-6">Services</h2>
+        <div class="flex justify-center ">
+            <p class="text-gray-400 mb-12 max-w-[800px] items-center">Passionate web developer with a
+                focus on
+                creating responsive,
+                aesthetically pleasing, and user-friendly websites.
+                Dedicated to blending clean code with innovative design solutions."</p>
+        </div>
+
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div
+                class="service-box bg-gray-800 p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-lg">
+                <i class="text-orange-500 text-5xl mb-4"><i class="fa-brands fa-html5" style="color: #fa2405;"></i></i>
+                <h3 class="text-xl font-semibold text-orange-500 mb-2">HTML</h3>
+                <p class="text-gray-400">HTML (HyperText Markup Language) is the backbone of web development, providing
+                    the basic structure for web pages.
+                </p>
+            </div>
+
+            <div
+                class="service-box bg-gray-800 p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-lg">
+                <i class="text-orange-500 text-5xl mb-4"><i class="fa-brands fa-css3-alt"
+                        style="color: #74C0FC;"></i></i>
+                <h3 class="text-xl font-semibold text-orange-500 mb-2">CSS</h3>
+                <p class="text-gray-400">CSS allows developers to separate content (HTML) from design (CSS), making it
+                    easier to maintain and update web pages.
+                </p>
+            </div>
+
+            <div
+                class="service-box bg-gray-800 p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-lg">
+                <i class="text-orange-500 text-5xl mb-4"><i class="fa-brands fa-js" style="color: #FFD43B;"></i></i>
+                <h3 class="text-xl font-semibold text-orange-500 mb-2">JAVASCRIPT</h3>
+                <p class="text-gray-400">JavaScript is a high-level, dynamic, and interpreted programming language used
+                    primarily for adding interactivity to web
+                    pages.
+                </p>
+            </div>
+
+            <div
+                class="service-box bg-gray-800 p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-lg">
+                <i class="text-orange-500 text-5xl mb-4"><i class="fa-brands fa-react" style="color: #74C0FC;"></i></i>
+                <h3 class="text-xl font-semibold text-orange-500 mb-2">REACT</h3>
+                <p class="text-gray-400">React is a popular JavaScript library developed by Facebook for building user
+                    interfaces, particularly single-page
+                    applications (SPAs).
+                </p>
+            </div>
+
+            <div
+                class="service-box bg-gray-800 p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-lg">
+                <i class="text-orange-500 text-5xl mb-4"><i class="fa-brands fa-bootstrap"
+                        style="color: #63E6BE;"></i></i>
+                <h3 class="text-xl font-semibold text-orange-500 mb-2">BOOTSTRAP</h3>
+                <p class="text-gray-400">Bootstrap is a popular front-end framework developed by Twitter, designed to
+                    simplify and streamline the process of web
+                    development.
+                </p>
+            </div>
+
+            <div
+                class="service-box bg-gray-800 p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-lg">
+                <i class="text-orange-500 text-5xl mb-4"><i class="fa-brands fa-php" style="color: #74C0FC;"></i></i>
+                <h3 class="text-xl font-semibold text-orange-500 mb-2">PHP</h3>
+                <p class="text-gray-400">PHP (Hypertext Preprocessor) is a widely-used open-source server-side scripting
+                    language designed specifically for web
+                    development.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="bg-gray-900 text-white py-12 px-6">
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-8">
+
+            <!-- Left Side - Image Section -->
+            <div class="relative w-full md:w-1/3">
+                <div class="rounded-lg overflow-hidden">
+                    <img class="w-full h-auto" src="./assets/photos/Group 2.png" alt="Profile Photo">
+                </div>
+            </div>
+
+            <!-- Right Side - About Text -->
+            <div class="md:w-2/3 text-center bg-gray-800 pt-[10px] pb-[27px] px-3 rounded-lg">
+                <h2 class="text-3xl font-bold mb-[10px]">About Me</h2>
+                <div class="flex justify-center">
+                    <p class="text-gray-400 mt-2 mb-4 max-w-[400px]">Proficient in creating responsive, user-centered
+                        web
+                        designs using
+                        modern tools and techniques. </p>
+                </div>
+                <div class="flex justify-center">
+                    <p class="text-gray-300 leading-relaxed mt-[10px] max-w-[650px] text-center  text-justify ">
+                        Creativity: You have a strong ability to design visually appealing and engaging websites that
+                        capture user attention.
+
+                        Responsive Design: You're skilled in creating websites that work seamlessly across devices,
+                        ensuring
+                        a great user
+                        experience on desktops, tablets, and mobile.
+
+                        UI/UX Expertise: You understand how users interact with websites and can design intuitive
+                        interfaces
+                        that enhance user
+                        satisfaction and engagement.
+
+                        Attention to Detail: You ensure pixel-perfect designs that maintain consistency, alignment, and
+                        overall aesthetic
+                        appeal.
+
+                        Problem-Solving: You can tackle design challenges by finding creative solutions, improving
+                        functionality while
+                        maintaining visual appeal.
+
+                        Technical Proficiency: You are well-versed in HTML, CSS, JavaScript, and modern web design
+                        tools,
+                        allowing you to bring
+                        your designs to life efficiently.
+
+                        Collaboration: You work well with developers, marketers, and clients, ensuring that your designs
+                        meet business goals and
+                        technical requirements.
+
+                        Trend Awareness: You're always up-to-date with the latest web design trends, tools, and
+                        technologies, incorporating
+                        fresh ideas into your work.
+
+                        SEO Awareness: You design with search engine optimization in mind, ensuring that your websites
+
+
+                    </p>
+
+                </div>
+                <a href="#"
+                    class="inline-block bg-orange-500 text-white py-2 px-6 rounded-full mt-6 hover:bg-orange-600 transition-colors duration-300">Download
+                    CV</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <section class="bg-gray-900 py-12 mt[70px]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">Portfolio</h2>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center mb-8">
+                <button
+                    class="px-4 py-2 bg-orange-500 text-white rounded-full mr-2 mb-2 hover:bg-orange-600 transition duration-300">
+                    All
+                </button>
+                <button
+                    class="px-4 py-2 bg-gray-700 text-white rounded-full mr-2 mb-2 hover:bg-orange-500 transition duration-300">
+                    HTML DESIGN
+                </button>
+                <button
+                    class="px-4 py-2 bg-gray-700 text-white rounded-full mr-2 mb-2 hover:bg-orange-500 transition duration-300">
+                    App Mobile Design
+                </button>
+                <button
+                    class="px-4 py-2 bg-gray-700 text-white rounded-full mr-2 mb-2 hover:bg-orange-500 transition duration-300">
+                    App Desktop
+                </button>
+                <button
+                    class="px-4 py-2 bg-gray-700 text-white rounded-full mb-2 hover:bg-orange-500 transition duration-300">
+                    REACT DESIGN
+                </button>
+            </div>
+
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item -->
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img src="./assets/photos/Frame 85.png" alt="Project 1" class="rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-white">ZALWA</h3>
+                    <p class="text-gray-400">WEB-DESIGN</p>
+                </div>
+
+                <!-- Repeat the same for other items -->
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img src="./assets/photos/Frame 86.png" alt="Project 2" class="rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-white">MOUNTOIN</h3>
+                    <p class="text-gray-400">WEB-DESIGN</p>
+                </div>
+
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img src="./assets/photos/Frame 87.png" alt="Project 3" class="rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-white">UNDERCOVER</h3>
+                    <p class="text-gray-400">WEB-DESIGN</p>
+                </div>
+
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img src="./assets/photos/Frame 88.png" alt="Project 4" class="rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-white">ZALWA</h3>
+                    <p class="text-gray-400">WEB-DESIGN</p>
+                </div>
+
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img src="./assets/photos/Frame 89.png" alt="Project 5" class="rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-white">JAIKOR</h3>
+                    <p class="text-gray-400">WEB-DESIGN</p>
+                </div>
+
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <img src="./assets/photos/Frame 90.png" alt="Project 6" class="rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-white">CARBON</h3>
+                    <p class="text-gray-400">WEB-DESIGN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="container mx-auto p-6 mt-[70px]">
+        <!-- Main Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+            <!-- About Me Section -->
+            <div class="space-y-4">
+                <h1 class="text-4xl font-bold text-white flex justify-center ">About web development</h1>
+                <p class="text-lg text-purple-300 text-justify">Web development is the process of building and
+                    maintaining websites
+                    or web applications. It includes front-end
+                    development (design and user interface) and back-end development (server-side logic, databases, and
+                    application
+                    functionality). Web developers use programming languages like HTML, CSS, JavaScript, and frameworks
+                    such as React,
+                    Angular, or Vue for the front-end, and Node.js, Django, or Ruby on Rails for the back-end. A key
+                    part of web development
+                    is ensuring that websites are responsive, meaning they look and function well on all devices, from
+                    desktops to mobile
+                    phones. Developers also focus on optimizing performance, security, and user experience.</p>
+
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="bg-gray-900 p-6 border-2 border-purple-600 rounded-lg">
+                <h2 class="text-2xl text-white text-center mb-4">Contact Me</h2>
+                <p class="text-sm text-purple-300 text-center mb-6">Cultivating Connections: Reach Out And Connect With
+                    Me
+                </p>
+
+                <form action="#" method="POST" class="space-y-4">
+                    <!-- Name and Email Fields -->
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <input type="text" name="name" placeholder="Name"
+                            class="w-full p-3 bg-gray-800 border border-purple-600 text-white rounded focus:ring-2 focus:ring-purple-500">
+                        <input type="email" name="email" placeholder="Email"
+                            class="w-full p-3 bg-gray-800 border border-purple-600 text-white rounded focus:ring-2 focus:ring-purple-500">
+                    </div>
+
+                    <!-- Phone Number and Service of Interest Fields -->
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <input type="text" name="phone" placeholder="Phone Number"
+                            class="w-full p-3 bg-gray-800 border border-purple-600 text-white rounded focus:ring-2 focus:ring-purple-500">
+                        <select name="service"
+                            class="w-full p-3 bg-gray-800 border border-purple-600 text-white rounded focus:ring-2 focus:ring-purple-500">
+                            <option value="">Service of Interest</option>
+                            <option value="web-design">Web Design</option>
+                            <option value="development">Development</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+
+                    <!-- Timeline and Project Details Fields -->
+                    <div class="grid grid-cols-1 gap-4">
+                        <input type="text" name="timeline" placeholder="Timeline"
+                            class="w-full p-3 bg-gray-800 border border-purple-600 text-white rounded focus:ring-2 focus:ring-purple-500">
+                        <textarea name="details" placeholder="Project Details"
+                            class="w-full p-3 h-28 bg-gray-800 border border-purple-600 text-white rounded focus:ring-2 focus:ring-purple-500"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button type="submit"
+                            class="px-6 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition">Send</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer class="bg-black mt-[70px] text-gray-300 py-8">
+        <div class="container mx-auto text-center space-y-6">
+            <!-- Logo Section -->
+            <div>
+                <h1 class="text-2xl text-orange-500 font-bold">LOGO</h1>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="space-x-6 text-sm md:text-base">
+                <a href="#" class="hover:text-white">Home</a>
+                <a href="#" class="hover:text-white">Services</a>
+                <a href="#" class="hover:text-white">About Me</a>
+                <a href="#" class="hover:text-white">Portfolio</a>
+                <!-- <a href="#" class="hover:text-white">Contact Me</a> -->
+            </nav>
+
+            <!-- Social Media Icons -->
+            <div class="flex justify-center space-x-4 text-xl">
+                <a href="https://www.instagram.com/yourusername" class="hover:text-white"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/yourprofile" class="hover:text-white"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-dribbble"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-behance"></i></a>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="text-sm space-y-2">
+                <p><a href="mailto:taraque.451@gmsil.come" class="hover:text-white">
+                        <i class="far fa-envelope"></i> taraque.451@gmsil.come</a>
+                </p>
+                <p><a href="tel:+93729107005" class="hover:text-white">
+                        <i class="fas fa-phone"></i> +01614871922</a>
+                </p>
+            </div>
+
+            <!-- Footer Credits -->
+            <div class="text-xs text-gray-500">
+                <p>Designed by @MUJAHJID. WEB-DESIGNER </p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
